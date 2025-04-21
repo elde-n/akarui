@@ -29,7 +29,7 @@ impl Device {
             .expect("Failed to parse max_brightness");
 
         let percentage = value.clamp(0, 100);
-        let value = ((percentage as f32 / 100.0) * max_brightness) as u32;
+        let value = ((percentage as f32 / 100.0) * max_brightness).round() as u32;
         std::fs::write(self.path.join("brightness"), value.to_string())
             .expect("Failed to write brightness");
 
@@ -70,7 +70,7 @@ impl Device {
             .parse::<f32>()
             .expect("Failed to parse max_brightness");
 
-        ((brightness / max_brightness) * 100.0) as u8
+        ((brightness / max_brightness) * 100.0).round() as u8
     }
 }
 
