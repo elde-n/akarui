@@ -13,4 +13,6 @@ akarui get --device="intel_backlight" # returns the backlight percentage of the 
 akarui set 100 # sets the backlight percentage of a device to 100
 akarui list # lists all the available devices
 akarui load # loads all the screen backlight levels from the config file
+
+akarui increase 5 # increases the backlight level by 5%
 ```
