@@ -25,6 +25,18 @@ fn main() {
             device.set_brightness(*value);
         }
 
+        command::Commands::Increase { value, device } => {
+            let device = device::find(device.clone());
+            let brightness = device.get_brightness();
+            device.set_brightness(brightness + value);
+        }
+
+        command::Commands::Decrease { value, device } => {
+            let device = device::find(device.clone());
+            let brightness = device.get_brightness();
+            device.set_brightness(brightness - value);
+        }
+
         command::Commands::Load => {
             let cfg: Config = confy::load(env!("CARGO_PKG_NAME"), Some("config")).unwrap();
             for device in device::list() {

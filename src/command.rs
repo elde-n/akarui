@@ -23,6 +23,21 @@ pub(crate) enum Commands {
         #[arg(short, long)]
         device: Option<String>,
     },
+
+    Increase {
+        value: u8,
+
+        #[arg(short, long)]
+        device: Option<String>,
+    },
+
+    Decrease {
+        value: u8,
+
+        #[arg(short, long)]
+        device: Option<String>,
+    },
+
     /// loads the stored backlight levels of all devices from the config file
     Load,
 }
