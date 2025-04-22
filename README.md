@@ -2,6 +2,10 @@
 A lightweight `/sys/class/backlight/*` wrapper, to control the backlight of screens on linux systems
 
 # installation
+To get write access to `/sys/class/backlight/*`
+- Install the `contrib/90-backlight.rules` to `/etc/udev/rules.d`
+- Or write a init-system script that gives write permissions to your user on boot
+
 ```sh
 cargo install akarui
 ```
